@@ -1,5 +1,4 @@
 language: java
-<<<<<<< HEAD
+
 script: "pushd ./my-helloworld; ./build.sh; popd"
-=======
->>>>>>> parent of 4a6797b... added maven hello world
+
