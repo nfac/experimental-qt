@@ -1,2 +1,2 @@
 language: java
-script: "./my-helloworld/build.sh"
+script: "pushd ./my-helloworld; ./build.sh; popd"
