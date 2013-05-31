@@ -2,6 +2,16 @@
 
 find . -name "*.sh" | xargs chmod +x
 
+# deploy qtaste mvn dependencies
+pushd ./qtaste-trunk/dependencies
+unzip qtaste_mvn_missing_dependencies.zip
+cp -r ./javax ~/.m2/repository
+cp -r ./jsyntaxpane/ ~/.m2/repository
+rm -rf ./javax
+rm -rf ./jsyntaxpane/
+popd
+
+
 # build the kernel
 pushd kernel
 ./build.sh || exit 1
