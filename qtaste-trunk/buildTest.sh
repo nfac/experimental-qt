@@ -1,4 +1,5 @@
 #! /bin/bash
 
-ls ~/.m2/repository
+ls ~
+ls ~/.m2
 
