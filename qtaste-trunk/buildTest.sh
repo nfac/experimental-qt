@@ -1,9 +1,14 @@
 #! /bin/bash
 
-echo "NCO"
-ls -l ~
-echo "NCO"
-ls -l ~/.m2
+echo "NCO: deploy qtaste mvn dependencies"
+pushd dependencies
+unzip qtaste_mvn_missing_dependencies.zip
+cp -r ./javax ~/.m2/repository
+cp -r ./jsyntaxpane/ ~/.m2/repository
+rm -rf ./javax
+rm -rf ./jsyntaxpane/
+popd
+
 echo "NCO"
 ls -l ~/.m2/repository
 
