@@ -30,7 +30,7 @@
    </properties>
 
    <scm>
-      <developerConnection>scm:svn:file://${basedir}</developerConnection>
+      <developerConnection>scm:git:file://${basedir}</developerConnection>
    </scm>
 
    <build>
