@@ -1,13 +1,5 @@
 language: java
 
-before_script: 
- - pushd ./dependencies
- - unzip qtaste_mvn_missing_dependencies.zip
- - cp ./javax ~/.m2/repository
- - cp ./jsyntaxpane/ ~/.m2/repository
+before_script: "pushd ./dependencies; unzip qtaste_mvn_missing_dependencies.zip; cp ./javax ~/.m2/repository; cp ./jsyntaxpane/ ~/.m2/repository"
 
-script: 
- - pushd ./kernel 
- - ./build.sh
- -  popd
-
+script: "pushd ./kernel; ./build.sh; popd"
