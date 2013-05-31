@@ -3,7 +3,7 @@
 find . -name "*.sh" | xargs chmod +x
 
 # deploy qtaste mvn dependencies
-pushd ./qtaste-trunk/dependencies
+pushd dependencies
 unzip qtaste_mvn_missing_dependencies.zip
 cp -r ./javax ~/.m2/repository
 cp -r ./jsyntaxpane/ ~/.m2/repository
