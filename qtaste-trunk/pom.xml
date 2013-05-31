@@ -135,6 +135,17 @@
          </exclusions>
       </dependency>
 
+
+<!-- NCO: removed <artifactId>jdk-tools</artifactId> -->
+<!-- NCO: added -->
+<dependency>
+  <groupId>javadoc</groupId>
+  <artifactId>javadoc</artifactId>
+  <version>1.3</version>
+  <type>pom</type>
+</dependency>
+
+
    </dependencies>
 
    <dependencyManagement>
