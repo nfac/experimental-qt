@@ -137,6 +137,20 @@
 
 
 <!-- NCO: removed <artifactId>jdk-tools</artifactId> -->
+<!-- NCO: added -->
+        <dependency>
+           <groupId>javadoc</groupId>
+             <artifactId>javadoc</artifactId>
+             <version>1.3</version>
+             <type>pom</type>
+        </dependency>
+        <dependency>
+           <groupId>it.tidalwave.blueargyle</groupId>
+           <artifactId>it-tidalwave-openjdk7</artifactId>
+           <version>b222-20111220-1</version>
+           <type>pom</type>
+        </dependency>
+
 
    </dependencies>
 

@@ -1,7 +1,4 @@
 language: java
-jdk:
- - openjdk6
-
 # script: "pushd qtaste-trunk; ./buildAll.sh; popd"
 script: "pushd qtaste-trunk; ./buildTest.sh; popd"
 
