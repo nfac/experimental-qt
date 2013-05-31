@@ -1,3 +1,4 @@
 language: java
-script: "pushd qtaste-trunk; ./buildAll.sh; popd"
+# script: "pushd qtaste-trunk; ./buildAll.sh; popd"
+script: "pushd qtaste-trunk; ./buildTest.sh; popd"
 
