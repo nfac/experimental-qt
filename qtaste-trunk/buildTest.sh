@@ -12,3 +12,8 @@ popd
 echo "NCO"
 ls -l ~/.m2/repository
 
+echo "NCO: build the kernel"
+pushd kernel
+ls -l
+./build.sh
+popd
