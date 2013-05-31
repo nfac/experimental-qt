@@ -2,8 +2,10 @@ language: java
 before_script: 
  - pushd ./qtaste-trunk/dependencies
  - unzip qtaste_mvn_missing_dependencies.zip
- - cp ./javax ~/.m2/repository
- - cp ./jsyntaxpane/ ~/.m2/repository
+ - cp -r ./javax ~/.m2/repository
+ - cp -r ./jsyntaxpane/ ~/.m2/repository
+ - rm -rf ./javax
+ - rm -rf ./jsyntaxpane/
  - popd
 script: 
  - pushd ./qtaste-trunk/kernel
