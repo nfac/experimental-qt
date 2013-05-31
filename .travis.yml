@@ -1,11 +1,5 @@
 language: java
-before_script: 
- - pushd ./dependencies
- - unzip qtaste_mvn_missing_dependencies.zip
- - cp ./javax ~/.m2/repository
- - cp ./jsyntaxpane/ ~/.m2/repository
- - popd
 script: 
- - pushd ./kernel
- - ./build.sh
+ - pushd ./qtaste-trunk
+ - ./buildAll.sh
  - popd
