@@ -249,21 +249,21 @@
 
    <profiles>
 <!-- NCO: added profile -->
-       <profile>
-      <id>default-tools.jar</id>
-      <activation>
-      <activeByDefault>true</activeByDefault>
-    </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.sun</groupId>
-          <artifactId>tools</artifactId>
-          <version>whatever</version>
-          <scope>system</scope>
-          <systemPath>${java.home}/../lib/tools.jar</systemPath>
-        </dependency>
-      </dependencies>
-    </profile>
+      <profile>
+         <id>default-tools.jar</id>
+         <activation>
+           <activeByDefault>true</activeByDefault>
+         </activation>
+         <dependencies>
+           <dependency>
+             <groupId>com.sun</groupId>
+             <artifactId>tools</artifactId>
+             <version>whatever</version>
+             <scope>system</scope>
+             <systemPath>${java.home}/../lib/tools.jar</systemPath>
+           </dependency>
+        </dependencies>
+      </profile>
 
       <profile>
          <id>qspin-site</id>
