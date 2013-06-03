@@ -248,7 +248,7 @@
    </dependencyManagement>
 
    <profiles>
-
+<!-- NCO: added profile -->
        <profile>
       <id>default-tools.jar</id>
       <activation>
