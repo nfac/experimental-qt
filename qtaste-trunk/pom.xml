@@ -40,8 +40,6 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>2.3.2</version>
             <configuration>
-                <source>1.6</source>
-                <target>1.6</target>
                 <compilerArgument></compilerArgument>
                 <excludes>
                    <exclude>**/package-info.java</exclude>
@@ -297,26 +295,6 @@
             </plugins>
          </reporting>
       </profile>
-
-      <profile>
-      <id>default-tools.jar</id>
-      <activation>
-        <property>
-          <name>java.vendor</name>
-          <value>Sun Microsystems Inc.</value>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.sun</groupId>
-          <artifactId>tools</artifactId>
-          <version>1.4.2</version>
-          <scope>system</scope>
-          <systemPath>${java.home}/../lib/tools.jar</systemPath>
-        </dependency>
-      </dependencies>
-    </profile>
-
    </profiles>
 </project>
 
