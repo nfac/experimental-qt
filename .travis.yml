@@ -1,4 +1,8 @@
 language: java
 # script: "pushd qtaste-trunk; ./buildAll.sh; popd"
-script: "pushd qtaste-trunk; ./buildTest.sh; popd"
+script: 
+ - TRAVIS_CI=1; export TRAVIS_CI
+ - pushd qtaste-trunk 
+ - ./buildTest.sh
+ -  popd"
 

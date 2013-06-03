@@ -8,11 +8,7 @@ cp -r ./jsyntaxpane/ ~/.m2/repository
 rm -rf ./javax
 rm -rf ./jsyntaxpane/
 popd
-echo "NCO/ end deploy dependencies"
-
-
-echo "NCO"
-ls -l ~/.m2/repository
+echo "NCO: end deploy dependencies"
 
 echo "NCO: build the kernel"
 pushd kernel
@@ -20,5 +16,11 @@ ls -l
 ./build.sh || exit 1
 popd
 
-# build other
+echo "NCO: build plugins"
+pushd plugins_src
+./build.sh || exit 1
+popd
+
+
+echo "NCO: build other"
 mvn install || exit 1

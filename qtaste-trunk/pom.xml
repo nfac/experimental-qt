@@ -252,7 +252,10 @@
       <profile>
          <id>default-tools.jar</id>
          <activation>
-           <activeByDefault>true</activeByDefault>
+           <property>
+             <name>environment</name>
+             <value>travis</value>
+           </property>
          </activation>
          <dependencies>
            <dependency>
