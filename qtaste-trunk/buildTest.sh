@@ -18,6 +18,7 @@ popd
 
 echo "NCO: build plugins"
 pushd plugins_src
+ls -l
 ./build.sh || exit 1
 popd
 

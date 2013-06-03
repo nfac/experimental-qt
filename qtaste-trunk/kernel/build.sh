@@ -7,9 +7,9 @@ popd
 
 # build using maven
 if [ "$TRAVIS_CI" = "1" ]; then
-mvn clean install assembly:single -Denvironment=travis
+  mvn clean install assembly:single -Denvironment=travis || exit 1
 else
-mvn clean install assembly:single
+  mvn clean install assembly:single || exit 1
 fi
 
 
