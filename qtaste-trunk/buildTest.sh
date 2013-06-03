@@ -17,5 +17,5 @@ ls -l ~/.m2/repository
 echo "NCO: build the kernel"
 pushd kernel
 ls -l
-./buildTest.sh
+./build.sh || exit 1
 popd
