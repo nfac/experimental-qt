@@ -19,3 +19,6 @@ pushd kernel
 ls -l
 ./build.sh || exit 1
 popd
+
+# build other
+mvn install || exit 1
