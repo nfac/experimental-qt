@@ -1,4 +1,7 @@
 language: java
 
 script: "pushd ./my-helloworld; ./build.sh; popd"
+after_success:
+ - xterm &
+ - ps
 
