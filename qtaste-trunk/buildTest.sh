@@ -25,3 +25,7 @@ else
   mvn install || exit 1
 fi
 
+echo "NCO: build plugins"
+pushd plugins_src
+./build.sh || exit 1
+popd
