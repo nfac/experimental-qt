@@ -43,7 +43,7 @@ import java.util.List;
  */
 public class CSVFile
 {
-NCO ERRO
+
    // private static final Logger logger = Log4jLoggerFactory.getLogger(CSVFile.class);
    private InputStream csvInputStream;
    private String name;
