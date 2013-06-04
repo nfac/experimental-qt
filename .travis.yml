@@ -5,5 +5,5 @@ script:
  - export TRAVIS_CI
  - pushd qtaste-trunk 
  - ./buildTest.sh
- -  popd"
+ -  popd
 
