@@ -253,7 +253,6 @@
          <id>default-tools.jar</id>
          <activation>
            <property>
-             <activeByDefault>false</activeByDefault>
              <name>environment</name>
              <value>travis</value>
            </property>
