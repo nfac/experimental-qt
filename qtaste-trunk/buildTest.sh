@@ -39,3 +39,8 @@ popd
 pushd izpack
 ./createInstaller.sh || exit 1
 popd
+
+# generate documentation
+pushd doc
+./generateDocs.sh || exit 1
+popd
