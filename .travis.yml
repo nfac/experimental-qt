@@ -1,9 +1,11 @@
 language: java
-# script: "pushd qtaste-trunk; ./buildAll.sh; popd"
-script: 
+script:
  - TRAVIS_CI="1"
  - export TRAVIS_CI
- - pushd qtaste-trunk 
- - ./buildTest.sh
+ - pushd qtaste-trunk
+ - ./buildAll.sh
  -  popd
-
+after_success:
+ - pushd qtaste-trunk
+ - ./executeDemo.sh
+ - popd
