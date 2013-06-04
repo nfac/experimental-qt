@@ -1,7 +1,9 @@
 language: java
-script:
+env:
  - TRAVIS_CI="1"
- - export TRAVIS_CI
+before_install:
+ - sudo apt-get install xterm
+script:
  - pushd qtaste-trunk
  - ./buildAll.sh
  -  popd
