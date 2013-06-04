@@ -20,7 +20,7 @@ popd
 
 echo "NCO: build other"
 if [ "$TRAVIS_CI" = "1" ]; then
-  mvn clean install assembly:single -Denvironment=travis || exit 1
+  mvn install -Denvironment=travis || exit 1
 else
   mvn install || exit 1
 fi
