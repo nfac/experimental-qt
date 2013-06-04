@@ -1,6 +1,7 @@
 language: java
 before_install:
  - sudo apt-get install xterm
+ - "export DISPLAY=:99.0"
 script:
  - pushd ./my-helloworld
  - ./build.sh
