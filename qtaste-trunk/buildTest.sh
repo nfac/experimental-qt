@@ -1,5 +1,7 @@
 #! /bin/bash
 
+find . -name "*.sh" | xargs chmod +x
+
 echo "NCO: deploy qtaste mvn dependencies"
 pushd dependencies
 unzip qtaste_mvn_missing_dependencies.zip
@@ -15,13 +17,6 @@ pushd kernel
 ls -l
 ./build.sh || exit 1
 popd
-
-echo "NCO: build plugins"
-pushd plugins_src
-ls -l
-./build.sh || exit 1
-popd
-
 
 echo "NCO: build other"
 mvn install || exit 1
