@@ -29,3 +29,8 @@ echo "NCO: build plugins"
 pushd plugins_src
 ./build.sh || exit 1
 popd
+
+# build demonstrations
+pushd demo
+./build.sh || exit 1
+popd
