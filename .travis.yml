@@ -1,6 +1,10 @@
 language: java
-
-script: "pushd ./my-helloworld; ./build.sh; popd"
+before_install:
+ - sudo apt-get install xterm
+script:
+ - pushd ./my-helloworld
+ - ./build.sh
+ - popd
 after_success:
  - xterm &
  - ps
