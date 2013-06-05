@@ -8,6 +8,6 @@ script:
  - ./build.sh
  - popd
 after_success:
- - xterm -display :99.0 &
+ - xterm &
  - ps
 
