@@ -16,7 +16,7 @@ pushd kernel
 popd
 
 # build other
-if [ "$TRAVIS_CI" = "1" ]; then
+if [ "$QTASTE_TRAVIS_CI" = "1" ]; then
   mvn install -Denvironment=travis || exit 1
 else
   mvn install || exit 1
