@@ -1,5 +1,7 @@
 #! /bin/bash
 
+echo "Executing script build-test-qtaste"
+
 export QTASTE_TRAVIS_CI="1"
 # before_install:
 sudo apt-get install xterm
