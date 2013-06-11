@@ -1,6 +1,6 @@
 #! /bin/bash
 
-QTASTE_TRAVIS_CI="1"
+export QTASTE_TRAVIS_CI="1"
 # before_install:
 sudo apt-get install xterm
 export DISPLAY=:99.0
