@@ -190,7 +190,13 @@
             <version>2.0</version>
          </dependency>
 
-         <!-- NCO: removed <artifactId>jython-engine</artifactId> -->
+         <dependency>
+            <groupId>javax.scripting</groupId>
+            <artifactId>jython-engine</artifactId>
+            <version>20080808</version>
+            <scope>system</scope>
+            <systemPath>~/.m2/repository/javax/scripting/jython-engine/20080808/jython-engine-20080808.jar</systemPath>
+         </dependency>
 
         <dependency>
             <groupId>jfree</groupId>
@@ -208,7 +214,13 @@
             <version>1.2.1</version>
          </dependency>
 
-         <!-- NCO: removed <artifactId>jsyntaxpane</artifactId> -->
+         <dependency>
+            <groupId>jsyntaxpane</groupId>
+            <artifactId>jsyntaxpane</artifactId>
+            <version>0.9.5-b27</version>
+            <scope>system</scope>
+            <systemPath>~/.m2/repository/jsyntaxpane/jsyntaxpane/0.9.5-b27/jsyntaxpane-0.9.5-b27.jar</systemPath>
+         </dependency>
 
          <dependency>
             <groupId>org.python</groupId>
@@ -261,23 +273,6 @@
              <scope>system</scope>
              <systemPath>${java.home}/../lib/tools.jar</systemPath>
            </dependency>
-
-           <dependency>
-            <groupId>jsyntaxpane</groupId>
-            <artifactId>jsyntaxpane</artifactId>
-            <version>0.9.5-b27</version>
-            <scope>system</scope>
-            <systemPath>~/.m2/repository/jsyntaxpane/jsyntaxpane/0.9.5-b27/jsyntaxpane-0.9.5-b27.jar</systemPath>
-         </dependency>
-
-         <dependency>
-            <groupId>javax.scripting</groupId>
-            <artifactId>jython-engine</artifactId>
-            <version>20080808</version>
-            <scope>system</scope>
-            <systemPath>~/.m2/repository/javax/scripting/jython-engine/20080808/jython-engine-20080808.jar</systemPath>
-         </dependency>
-
         </dependencies>
       </profile>
 

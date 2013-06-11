@@ -10,9 +10,6 @@ rm -rf ./javax
 rm -rf ./jsyntaxpane/
 popd
 
-echo "listing .m2 directory:"
-ls ~/.m2/repository
-
 # build the kernel
 pushd kernel
 ./build.sh || exit 1
