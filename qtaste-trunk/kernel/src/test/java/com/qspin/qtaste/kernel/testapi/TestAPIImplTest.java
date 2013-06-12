@@ -77,3 +77,4 @@ public class TestAPIImplTest extends TestCase {
 
         assertTrue("JUNIT should be a component as it has been previously added", result.contains("JUNIT"));
     }
+}
