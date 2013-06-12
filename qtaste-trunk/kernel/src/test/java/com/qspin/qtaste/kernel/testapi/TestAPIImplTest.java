@@ -51,11 +51,20 @@ public class TestAPIImplTest extends TestCase {
         TestBedConfiguration.setConfigFile(path.replaceAll(" ", "\\ "));
         ComponentsLoader.getInstance();
         instance = TestAPIImpl.getInstance();
+
+        String packageName = "JUNIT";
+        String component = "JUNIT";
+        ComponentFactory factory = null;
+        String method = "test";
+        instance.register(packageName, component, factory, method);
     }
 
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
+
+        instance.unregisterAllMethods();
+
         instance = null;
     }
 
@@ -63,12 +72,6 @@ public class TestAPIImplTest extends TestCase {
      * Test of getRegisteredComponents method, of class TestAPIImpl.
      */
     public void testGetRegisteredComponents() {
-        String packageName = "JUNIT";
-        String component = "JUNIT";
-        ComponentFactory factory = null;
-        String method = "test";
-        instance.register(packageName, component, factory, method);
-
         System.out.println("getRegisteredComponents");
 
         Collection<String> result = instance.getRegisteredComponents();
