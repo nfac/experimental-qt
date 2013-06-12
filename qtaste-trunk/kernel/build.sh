@@ -7,7 +7,7 @@ popd
 
 # build using maven
 if [ "$QTASTE_TRAVIS_CI" = "1" ]; then
-  mvn -e clean install assembly:single -Denvironment=travis || exit 1
+  mvn -X clean install assembly:single -Denvironment=travis || exit 1
 else
   mvn clean install assembly:single || exit 1
 fi
