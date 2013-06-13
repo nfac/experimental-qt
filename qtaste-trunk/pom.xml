@@ -78,6 +78,9 @@
                <artifactId>maven-surefire-plugin</artifactId>
                <!-- original version 2.4.2 -->
                <version>2.15</version>
+               <configuration>
+                    <runOrder>skip</runOrder>
+                </configuration>
             </plugin>
 
             <plugin>
