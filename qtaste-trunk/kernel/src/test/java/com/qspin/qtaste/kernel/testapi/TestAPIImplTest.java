@@ -59,16 +59,26 @@ public class TestAPIImplTest extends TestCase {
         instance = null;
     }
 
-    /**
-     * Test of getRegisteredComponents method, of class TestAPIImpl.
-     */
-    public void testGetRegisteredComponents() {
+    @Before
+    private void registerComponent() {
         String packageName = "JUNIT";
         String component = "JUNIT";
         ComponentFactory factory = null;
         String method = "test";
-        instance.register(packageName, component, factory, method);
 
+        instance.register(packageName, component, factory, method);
+    }
+
+    @After
+    private void unregisterComponent() {
+        instance.unregisterAllMethods();
+    }
+
+    /**
+     * Test of getRegisteredComponents method, of class TestAPIImpl.
+     */
+    @Test
+    public void testGetRegisteredComponents() {
         System.out.println("getRegisteredComponents");
 
         Collection<String> result = instance.getRegisteredComponents();
@@ -81,6 +91,7 @@ public class TestAPIImplTest extends TestCase {
     /**
      * Test of getRegisteredVerbs method, of class TestAPIImpl.
      */
+    @Test
     public void testGetRegisteredVerbs() {
         System.out.println("getRegisteredVerbs");
         String component = "nonexistingcomponent";
@@ -102,6 +113,7 @@ public class TestAPIImplTest extends TestCase {
     /**
      * Test of getComponent method, of class TestAPIImpl.
      */
+    @Test
     public void testGetComponent() {
         System.out.println("getComponent");
         String component = "non-existingcomponent";
@@ -132,6 +144,7 @@ public class TestAPIImplTest extends TestCase {
     /**
      * Test of getComponentName method, of class TestAPIImpl.
      */
+    @Test
     public void testGetComponentName() {
         System.out.println("getComponentName");
 
