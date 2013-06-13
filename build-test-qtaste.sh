@@ -9,7 +9,7 @@ export DISPLAY=:99.0
 find . -name "*.sh" | xargs chmod +x
 
 #sudo apt-get install xterm
-yum install xterm
+gem install xterm
 
 Xvfb :99.0 &
 
