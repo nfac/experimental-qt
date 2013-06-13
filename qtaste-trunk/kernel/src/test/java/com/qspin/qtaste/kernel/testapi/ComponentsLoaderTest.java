@@ -47,4 +47,36 @@ public class ComponentsLoaderTest extends TestCase {
     protected void tearDown() throws Exception {
         super.tearDown();
     }
+
+    /**
+     * Test of getInstance method, of class ComponentsLoader.
+     */
+    public void testGetInstance() {
+        System.out.println("getInstance");
+        ComponentsLoader result = ComponentsLoader.getInstance();
+        assertNotNull("instance cannot be null", result);
+
+        ComponentsLoader result2 = ComponentsLoader.getInstance();
+
+        assertNotNull(result2);
+
+        assertEquals("should get the same instance", result, result2);
+    }
+
+    /**
+     * Test of getComponentImplementationClass method, of class ComponentsLoader.
+     */
+    public void testGetComponentImplementationClass() {
+        System.out.println("getComponentImplementationClass");
+        String component = "";
+        ComponentsLoader instance = ComponentsLoader.getInstance();
+
+        // Get a non-existing component
+        Class<?> result = instance.getComponentImplementationClass(component);
+        assertNull(result);
+
+        // Get an instance of the EngineTest component
+        Class<?> result2 = instance.getComponentImplementationClass("EngineTest");
+        assertNotNull(result2);
+    }
 }
