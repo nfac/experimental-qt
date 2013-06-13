@@ -7,15 +7,18 @@ export DISPLAY=:99.0
 
 # Before build configurations:
 find . -name "*.sh" | xargs chmod +x
+
 #sudo apt-get install xterm
+yum install xterm
+
 Xvfb :99.0 &
 
 # Build:
-pushd qtaste-trunk
-./buildAll.sh || exit 1
-popd
+#pushd qtaste-trunk
+#./buildAll.sh || exit 1
+#popd
 
 # Execute qtaste demo after build success:
-pushd qtaste-trunk
-./executeDemo.sh || exit 1
-popd
+#pushd qtaste-trunk
+#./executeDemo.sh || exit 1
+#popd
