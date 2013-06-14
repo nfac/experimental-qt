@@ -7,10 +7,10 @@ export DISPLAY=:99.0
 
 # Before build configurations:
 find . -name "*.sh" | xargs chmod +x
-
 Xvfb :99.0 &
 
-sudo apt-get install xterm
+cat /etc/sudoers
+#sudo apt-get install xterm
 
 # Build:
 #pushd qtaste-trunk
