@@ -9,15 +9,12 @@ export DISPLAY=:99.0
 find . -name "*.sh" | xargs chmod +x
 Xvfb :99.0 &
 
-cat /etc/sudoers
-#sudo apt-get install xterm
-
 # Build:
-#pushd qtaste-trunk
-#./buildAll.sh || exit 1
-#popd
+pushd qtaste-trunk
+./buildAll.sh || exit 1
+popd
 
 # Execute qtaste demo after build success:
-#pushd qtaste-trunk
-#./executeDemo.sh || exit 1
-#popd
+pushd qtaste-trunk
+./executeDemo.sh || exit 1
+popd
