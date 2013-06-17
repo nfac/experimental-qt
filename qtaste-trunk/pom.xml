@@ -4,6 +4,20 @@
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
 
+<!-- Added -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>ibiblio.org</id>
+            <name>ibiblio</name>
+            <url>http://repo1.maven.org/maven/mule/dependencies/maven2</url>
+        </repository>
+    </repositories>
+
    <groupId>com.qspin.qtaste</groupId>
    <artifactId>qtaste</artifactId>
    <version>1.2.2-RC6</version>
