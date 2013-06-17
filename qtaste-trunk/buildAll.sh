@@ -2,13 +2,13 @@
 find . -name "*.sh" | xargs chmod +x
 
 # deploy qtaste mvn dependencies
-pushd dependencies
-unzip qtaste_mvn_missing_dependencies.zip
-cp -r ./javax ~/.m2/repository
-cp -r ./jsyntaxpane/ ~/.m2/repository
-rm -rf ./javax
-rm -rf ./jsyntaxpane/
-popd
+#pushd dependencies
+#unzip qtaste_mvn_missing_dependencies.zip
+#cp -r ./javax ~/.m2/repository
+#cp -r ./jsyntaxpane/ ~/.m2/repository
+#rm -rf ./javax
+#rm -rf ./jsyntaxpane/
+#popd
 
 # build the kernel
 pushd kernel
@@ -16,8 +16,8 @@ pushd kernel
 popd
 
 # build other
-if [ "$QTASTE_TRAVIS_CI" = "1" ]; then
-  mvn install -Denvironment=travis || exit 1
+if [ "$QTASTE_HOSTED_CI" = "1" ]; then
+  mvn install -Denvironment=hosted_ci || exit 1
 else
   mvn install || exit 1
 fi

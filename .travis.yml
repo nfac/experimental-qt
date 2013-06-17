@@ -1,6 +1,6 @@
 language: java
 env:
- - QTASTE_TRAVIS_CI="1"
+ - QTASTE_HOSTED_CI="1"
 before_install:
  - sudo apt-get install xterm
  - "export DISPLAY=:99.0"

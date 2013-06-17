@@ -162,10 +162,18 @@
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
         </dependency>
+<!--Changed
         <dependency>
             <groupId>javax.scripting</groupId>
             <artifactId>jython-engine</artifactId>
         </dependency>
+-->
+        <dependency>
+          <groupId>javax.script</groupId>
+          <artifactId>jython-engine</artifactId>
+          <classifier>jdk14</classifier>
+        </dependency>
+
         <dependency>
             <groupId>jfree</groupId>
             <artifactId>jfreechart</artifactId>
@@ -178,10 +186,18 @@
             <groupId>com.jgoodies</groupId>
             <artifactId>forms</artifactId>
         </dependency>
+
+<!-- Changed
         <dependency>
             <groupId>jsyntaxpane</groupId>
             <artifactId>jsyntaxpane</artifactId>
         </dependency>
+-->
+        <dependency>
+            <groupId>de.sciss</groupId>
+            <artifactId>jsyntaxpane</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.python</groupId>
             <artifactId>jython</artifactId>

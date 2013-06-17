@@ -2,7 +2,7 @@
 
 echo "Executing script build-test-qtaste"
 
-export QTASTE_TRAVIS_CI="1"
+export QTASTE_HOSTED_CI="1"
 export DISPLAY=:99.0
 
 # Before build configurations:
