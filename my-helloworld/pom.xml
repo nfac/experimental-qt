@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
 
   <scm>
-      <developerConnection>scm:git:file://${basedir}</developerConnection>
+      <developerConnection>scm:git:https://github.com/nfac/qtaste.git</developerConnection>
   </scm>
 
   <dependencies>
