@@ -7,6 +7,11 @@
   <version>1.0-SNAPSHOT</version>
   <name>my-helloworld</name>
   <url>http://maven.apache.org</url>
+
+  <scm>
+      <developerConnection>scm:git:file://${basedir}</developerConnection>
+  </scm>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -15,4 +20,19 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+  <build>
+      <plugins>
+          <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+         </plugins>
+   </build>
+
 </project>
