@@ -8,8 +8,8 @@
   <url>http://maven.apache.org</url>
 
   <scm>
-      <developerConnection>scm:git:file://${basedir}</developerConnection>
-    <tag>STABLE-2.0</tag>
+      <developerConnection>scm:git://github.com/nfac/hello-github.git</developerConnection>
+      <tag>STABLE-2.0</tag>
   </scm>
 
   <dependencies>
