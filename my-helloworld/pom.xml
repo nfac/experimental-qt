@@ -3,7 +3,7 @@
   <groupId>com.helloworld</groupId>
   <artifactId>my-helloworld</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>my-helloworld</name>
   <url>http://maven.apache.org</url>
 
@@ -11,6 +11,7 @@
     <url>https://github.com/nfac/qtaste</url>
     <connection>scm:git:ssh://git@github.com/nfac/qtaste.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/nfac/qtaste.git</developerConnection>
+    <tag>v1.0</tag>
   </scm>
 
   <dependencies>
