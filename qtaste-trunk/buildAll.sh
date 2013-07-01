@@ -10,6 +10,8 @@ find . -name "*.sh" | xargs chmod +x
 #rm -rf ./jsyntaxpane/
 #popd
 
+release:clean release:prepare
+
 # build the kernel
 pushd kernel
 ./build.sh || exit 1
@@ -17,7 +19,7 @@ popd
 
 # build other
 if [ "$QTASTE_HOSTED_CI" = "1" ]; then
-  mvn install -Denvironment=hosted_ci release:clean release:prepare || exit 1
+  mvn install -Denvironment=hosted_ci || exit 1
 else
   mvn install || exit 1
 fi
