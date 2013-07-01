@@ -7,7 +7,7 @@ popd
 
 # build using maven
 if [ "$QTASTE_HOSTED_CI" = "1" ]; then
-  mvn clean install assembly:single -Denvironment=hosted_ci release:clean release:prepare || exit 1
+  mvn clean install assembly:single -Denvironment=hosted_ci || exit 1
 else
   mvn clean install assembly:single || exit 1
 fi
