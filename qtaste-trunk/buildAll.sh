@@ -10,8 +10,6 @@ find . -name "*.sh" | xargs chmod +x
 #rm -rf ./jsyntaxpane/
 #popd
 
-release:clean release:prepare
-
 # build the kernel
 pushd kernel
 ./build.sh || exit 1
