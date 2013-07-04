@@ -60,7 +60,7 @@
                         </manifest>
                         <manifestEntries>
                             <Implementation-Build>${buildNumber}</Implementation-Build>
-                            <Kernel-Implementation-Version>${artifactId}-${qtaste-version}</Kernel-Implementation-Version>
+                            <Kernel-Implementation-Version>${project.artifactId}-${qtaste-version}</Kernel-Implementation-Version>
                         </manifestEntries>
                     </archive>
                     <descriptors>
@@ -68,6 +68,7 @@
                     </descriptors>
                 </configuration>
             </plugin>
+
             <!-- plugin to generate simulators doc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
