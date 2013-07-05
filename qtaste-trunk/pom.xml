@@ -43,6 +43,7 @@
 
   <modules>
       <module>testapi-parent</module>
+      <module>kernel</module>
       <module>toolbox</module>
    </modules>
 
