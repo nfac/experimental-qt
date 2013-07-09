@@ -8,7 +8,7 @@ find . -name "*.sh" | xargs chmod +x
 
 # build other
 if [ "$QTASTE_HOSTED_CI" = "1" ]; then
-  mvn clean install -P BuildKernelFirst -Denvironment=hosted_ci || exit 1
+  mvn clean install release:clean release:prepare -P BuildKernelFirst -Denvironment=hosted_ci || exit 1
 else
   mvn install || exit 1
 fi
