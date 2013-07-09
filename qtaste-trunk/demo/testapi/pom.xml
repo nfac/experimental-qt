@@ -10,6 +10,7 @@
       <groupId>com.qspin.qtaste</groupId>
       <artifactId>qtaste-testapi-parent</artifactId>
       <version>1.2.3-SNAPSHOT</version>
+      <relativePath>../../</relativePath>
    </parent>
 
    <artifactId>qtaste-demo-testapi</artifactId>
@@ -29,20 +30,20 @@
          <plugin>
            <groupId>org.apache.maven.plugins</groupId>
            <artifactId>maven-dependency-plugin</artifactId>
-	   <executions>
+       <executions>
                 <!-- Unpack selenium in order to generate TestAPI Documentation -->
-		<execution>
-			<id>unpack-selenium-src</id>
-			<phase>package</phase>
-			<goals>
-				<goal>unpack-dependencies</goal>
-			</goals>
-			<configuration>
-	                     <classifier>sources</classifier>
-			     <includeArtifactIds>selenium-java-client-driver</includeArtifactIds>
-			     <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
-			</configuration>
-		</execution>
+        <execution>
+            <id>unpack-selenium-src</id>
+            <phase>package</phase>
+            <goals>
+                <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+                         <classifier>sources</classifier>
+                 <includeArtifactIds>selenium-java-client-driver</includeArtifactIds>
+                 <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
+            </configuration>
+        </execution>
 
                <execution>
                   <id>unpack-testapi-src</id>
@@ -57,7 +58,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
          </plugin>
-         
+
          <!-- plugin to install source artifact -->
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -134,9 +135,9 @@
         <artifactId>xmlrpc-client</artifactId>
     </dependency>
     <dependency>
-    	<groupId>com.qspin.qtaste.plugin</groupId>
-    	<artifactId>javagui</artifactId>
-	<version>${qtaste-version}</version>
+        <groupId>com.qspin.qtaste.plugin</groupId>
+        <artifactId>javagui</artifactId>
+    <version>${qtaste-version}</version>
     </dependency>
    </dependencies>
 </project>

@@ -18,7 +18,6 @@
         </repository>
     </repositories>
 
-
   <scm>
     <url>https://github.com/nfac/qtaste</url>
     <connection>scm:git:ssh://git@github.com/nfac/qtaste.git</connection>
@@ -69,7 +68,6 @@
 
       <pluginManagement>
          <plugins>
-
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-javadoc-plugin</artifactId>
