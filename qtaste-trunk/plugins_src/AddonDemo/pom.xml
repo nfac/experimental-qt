@@ -10,6 +10,7 @@
         <groupId>com.qspin.qtaste</groupId>
         <artifactId>qtaste-testapi-parent</artifactId>
         <version>1.2.3-SNAPSHOT</version>
+        <relativePath>../../testapi-parent</relativePath>
     </parent>
 
     <artifactId>qtaste-demo-addon</artifactId>
