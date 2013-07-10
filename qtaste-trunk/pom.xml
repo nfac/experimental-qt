@@ -365,6 +365,58 @@
             </plugins>
          </reporting>
       </profile>
+
+      <profile>
+        <id>defaultModules</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <modules>
+            <module>testapi-parent</module>
+            <module>kernel</module>
+            <module>toolbox</module>
+        </modules>
+      </profile>
+
+
+      <profile>
+        <id>allModulesForRelease</id>
+        <modules>
+            <module>testapi-parent</module>
+            <module>kernel</module>
+            <module>toolbox</module>
+            <module>plugins_src/tools</module>
+            <module>plugins_src/javagui</module>
+            <module>plugins_src/recorder</module>
+            <module>plugins_src/AddonDemo</module>
+            <module>plugins_src/ControlScriptBuilderAddOn</module>
+            <module>demo/testapi</module>
+            <module>izpack</module>
+            <module>doc</module>
+        </modules>
+        <build>
+          <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                  <execution>
+                    <id>qtasteRelease</id>
+                    <goals>
+                      <goal>prepare</goal>
+                    </goals>
+                    <configuration>
+                        <goals>deploy</goals>
+                        <autoversionsubmodules>true</autoversionsubmodules>
+                        <tagNameFormat>v@{project.version}</tagNameFormat>
+                    </configuration>
+                  </execution>
+                </executions>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
    </profiles>
 </project>
 
