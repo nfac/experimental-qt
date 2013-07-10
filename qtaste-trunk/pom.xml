@@ -47,7 +47,7 @@
    </modules>
 
    <properties>
-      <qtaste-version>@{project.version}</qtaste-version>
+      <qtaste-version>${project.version}</qtaste-version>
    </properties>
 
    <build>
@@ -189,6 +189,7 @@
             <groupId>com.qspin.qtaste</groupId>
             <artifactId>qtaste-kernel</artifactId>
             <version>${qtaste-version}</version>
+            <classifier>tests</classifier>
          </dependency>
 
          <!-- EXTERNAL LIBRARIES -->
