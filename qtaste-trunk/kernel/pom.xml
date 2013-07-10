@@ -83,8 +83,8 @@
                 <executions>
                     <execution>
                         <id>generate-simulators-doc</id>
-                         <!-- <phase>package</phase> -->
-                         <phase>install</phase> <!-- NCO ADDED: this solves compiling with main pom-->
+                         <phase>package</phase>
+                         <!--  <phase>install</phase> NCO ADDED: this solves compiling with main pom-->
                         <goals>
                             <goal>jar</goal>
                         </goals>
