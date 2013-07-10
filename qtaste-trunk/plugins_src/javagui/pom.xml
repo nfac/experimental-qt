@@ -12,7 +12,7 @@
 
     <artifactId>javagui</artifactId>
     <packaging>jar</packaging>
-    <name>QTASTE javagui</name>
+    <name>QTASTE Plugins javagui</name>
 
     <properties>
         <preMainClass>com.qspin.qtaste.javagui.server.JavaGUI</preMainClass>
@@ -117,7 +117,7 @@
         <dependency>
             <groupId>qtaste-plugin</groupId>
             <artifactId>tools</artifactId>
-            <version>${qtaste-version}</version>
+            <version>1.2.3-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <groupId>com.qspin.qtaste.plugin</groupId>
