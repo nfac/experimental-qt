@@ -8,30 +8,30 @@ find . -name "*.sh" | xargs chmod +x
 
 # build other
 if [ "$QTASTE_HOSTED_CI" = "1" ]; then
-  mvn clean install release:clean release:prepare -P BuildKernelFirst -Denvironment=hosted_ci || exit 1
+  mvn clean install -P BuildKernelFirst -Denvironment=hosted_ci || exit 1
 else
   mvn install || exit 1
 fi
 
 
 # build plugins
-## pushd plugins_src
-## ./build.sh || exit 1
-## popd
+pushd plugins_src
+./build.sh || exit 1
+popd
 
 # build demonstrations
-## pushd demo
-## ./build.sh || exit 1
-## popd
+pushd demo
+./build.sh || exit 1
+popd
 
 # create installer
-## pushd izpack
-## ./createInstaller.sh || exit 1
-## popd
+pushd izpack
+./createInstaller.sh || exit 1
+popd
 
 # generate documentation
-## pushd doc
-## ./generateDocs.sh || exit 1
-## popd
+pushd doc
+./generateDocs.sh || exit 1
+popd
 
 
