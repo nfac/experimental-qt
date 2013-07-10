@@ -183,12 +183,12 @@
          <dependency>
             <groupId>com.qspin.qtaste</groupId>
             <artifactId>qtaste-kernel</artifactId>
-            <version>${qtaste-version}</version>
+            <version>1.2.3-SNAPSHOT</version>
          </dependency>
          <dependency>
             <groupId>com.qspin.qtaste</groupId>
             <artifactId>qtaste-kernel</artifactId>
-            <version>${qtaste-version}</version>
+            <version>1.2.3-SNAPSHOT</version>
             <classifier>tests</classifier>
          </dependency>
 
