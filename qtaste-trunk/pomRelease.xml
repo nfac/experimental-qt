@@ -30,6 +30,7 @@
       <module>testapi-parent</module>
       <module>kernel</module>
       <module>toolbox</module>
+      <module>plugins_src/tools</module>
    </modules>
 
    <properties>
