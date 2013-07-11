@@ -17,6 +17,63 @@
    <!--  <packaging>jar</packaging> -->
    <name>QTaste Test API for QTaste Demo</name>
 
+   <build>
+        <finalName>qtaste-testapi</finalName>
+        <plugins>
+            <!-- plugin to build deploy jar file, including version information -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+
+            <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <executions>
+                   <!-- Unpack selenium in order to generate TestAPI Documentation -->
+                   <execution>
+                    <id>unpack-selenium-src</id>
+                    <phase>package</phase>
+                    <goals>
+                         <goal>unpack-dependencies</goal>
+                    </goals>
+                    <configuration>
+                         <skip>true</skip>
+                         <classifier>sources</classifier>
+                         <includeArtifactIds>selenium-java-client-driver</includeArtifactIds>
+                         <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
+                    </configuration>
+                   </execution>
+                   <execution>
+                        <id>unpack-testapi-src</id>
+                        <configuration>
+                        <includeArtifactIds>qtaste-toolbox-testapi</includeArtifactIds>
+                    </configuration>
+                   </execution>
+               </executions>
+
+               <configuration>
+                <skip>true</skip>
+               </configuration>
+
+            </plugin>
+
+            <!-- plugin to generate testapi doc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+
+            <!-- plugin to install source artifact -->
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+   </build>
+
    <repositories>
         <repository>
             <id>apache-releases</id>
@@ -90,72 +147,4 @@
     <version>${qtaste-version}</version>
     </dependency>
    </dependencies>
-
-    <!-- NCO Added profile in order to exclude plugins when building Qtaste with mvn release:prepare -->
-    <profiles>
-       <profile>
-        <id>qtaste-demotestapi-plugins</id>
-        <activation>
-            <property>
-                <name>!skip-qtaste-demotestapi-plugins</name>
-            </property>
-        </activation>
-        <build>
-            <finalName>qtaste-testapi</finalName>
-            <plugins>
-                <!-- plugin to build deploy jar file, including version information -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                </plugin>
-
-                <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
-                <plugin>
-                   <groupId>org.apache.maven.plugins</groupId>
-                   <artifactId>maven-dependency-plugin</artifactId>
-                   <executions>
-                       <!-- Unpack selenium in order to generate TestAPI Documentation -->
-                       <execution>
-                        <id>unpack-selenium-src</id>
-                        <phase>package</phase>
-                        <goals>
-                             <goal>unpack-dependencies</goal>
-                        </goals>
-                        <configuration>
-                             <skip>true</skip>
-                             <classifier>sources</classifier>
-                             <includeArtifactIds>selenium-java-client-driver</includeArtifactIds>
-                             <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
-                        </configuration>
-                       </execution>
-                       <execution>
-                            <id>unpack-testapi-src</id>
-                            <configuration>
-                            <includeArtifactIds>qtaste-toolbox-testapi</includeArtifactIds>
-                        </configuration>
-                       </execution>
-                   </executions>
-
-                   <configuration>
-                    <skip>true</skip>
-                   </configuration>
-
-                </plugin>
-
-                <!-- plugin to generate testapi doc -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                </plugin>
-
-                <!-- plugin to install source artifact -->
-                <plugin>
-                   <groupId>org.apache.maven.plugins</groupId>
-                   <artifactId>maven-source-plugin</artifactId>
-                </plugin>
-
-            </plugins>
-        </build>
-      </profile>
-    </profiles>
 </project>
