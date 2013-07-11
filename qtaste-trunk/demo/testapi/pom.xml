@@ -14,7 +14,7 @@
    </parent>
 
    <artifactId>qtaste-demo-testapi</artifactId>
-   <packaging>jar</packaging>
+   <!--  <packaging>jar</packaging> -->
    <name>QTaste Test API for QTaste Demo</name>
 
    <repositories>
