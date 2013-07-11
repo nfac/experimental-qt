@@ -1,18 +1,8 @@
 #! /bin/bash
 find . -name "*.sh" | xargs chmod +x
 
-# build the kernel
-# pushd kernel
-# mvn install assembly:single -Denvironment=hosted_ci  || exit 1
-# popd
-
 # build other
-if [ "$QTASTE_HOSTED_CI" = "1" ]; then
-  mvn clean install -P BuildKernelFirst -Denvironment=hosted_ci || exit 1
-else
-  mvn install || exit 1
-fi
-
+mvn clean install -P qtaste-build-kernel-first -Denvironment=hosted_ci || exit 1
 
 # build plugins
 pushd plugins_src
