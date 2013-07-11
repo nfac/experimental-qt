@@ -125,6 +125,11 @@
                       </configuration>
                     </execution>
                   </executions>
+
+                   <configuration>
+                    <skip>true</skip>
+                   </configuration>
+
                 </plugin>
 
                 <!-- plugin to generate testapi doc -->
