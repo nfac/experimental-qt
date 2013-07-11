@@ -306,7 +306,7 @@
    <profiles>
 <!-- NCO: added profile -->
       <profile>
-         <id>default-tools.jar</id>
+         <id>qtaste-local-javatools</id>
          <activation>
            <property>
              <name>environment</name>
@@ -366,7 +366,7 @@
       </profile>
 
       <profile>
-        <id>defaultModules</id>
+        <id>qtaste-default-modules</id>
         <activation>
           <activeByDefault>true</activeByDefault>
         </activation>
@@ -379,7 +379,7 @@
 
 
       <profile>
-        <id>allModulesForRelease</id>
+        <id>qtaste-all-modules-release</id>
         <modules>
             <module>testapi-parent</module>
             <module>kernel</module>

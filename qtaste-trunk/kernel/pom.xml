@@ -231,7 +231,7 @@
     <profiles>
         <!-- NCO: added profile to install and assembly kernel before Java-Doc-->
       <profile>
-        <id>BuildKernelFirst</id>
+        <id>qtaste-build-kernel-first</id>
         <build>
             <plugins>
                 <plugin>
