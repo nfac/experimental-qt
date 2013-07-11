@@ -122,6 +122,7 @@
                              <goal>unpack-dependencies</goal>
                         </goals>
                         <configuration>
+                             <skip>${skip-for-release}</skip>
                              <classifier>sources</classifier>
                              <includeArtifactIds>selenium-java-client-driver</includeArtifactIds>
                              <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>

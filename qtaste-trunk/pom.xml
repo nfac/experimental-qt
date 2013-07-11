@@ -48,6 +48,7 @@
 
    <properties>
       <qtaste-version>${project.version}</qtaste-version>
+      <skip-for-release>false</skip-for-release>
    </properties>
 
    <build>
@@ -379,7 +380,6 @@
         </modules>
       </profile>
 
-
       <profile>
         <id>qtaste-all-modules-release</id>
         <modules>
@@ -396,6 +396,14 @@
             <module>doc</module>
         </modules>
       </profile>
+
+      <profile>
+        <id>qtaste-skip-for-release</id>
+        <properties>
+            <skip-for-release>true</skip-for-release>
+        </properties>
+      </profile>
+
    </profiles>
 </project>
 
