@@ -391,7 +391,7 @@
             <module>plugins_src/recorder</module>
             <module>plugins_src/AddonDemo</module>
             <module>plugins_src/ControlScriptBuilderAddOn</module>
-            <module>demo/testapi</module>
+            <!-- <module>demo/testapi</module> -->
             <module>izpack</module>
             <module>doc</module>
         </modules>

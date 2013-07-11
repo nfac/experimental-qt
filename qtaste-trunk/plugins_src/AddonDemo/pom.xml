@@ -18,7 +18,7 @@
     <name>Demo Add-On</name>
 
     <properties>
-        <qtaste-toolbox-version>${parent.version}</qtaste-toolbox-version>
+        <qtaste-toolbox-version>${project.parent.version}</qtaste-toolbox-version>
     </properties>
 
     <build>
@@ -31,9 +31,9 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <addonVersion>${version}</addonVersion>
-                            <addonName>${name}</addonName>
-                            <addonDescription>${description}</addonDescription>
+                            <addonVersion>${project.version}</addonVersion>
+                            <addonName>${project.name}</addonName>
+                            <addonDescription>${project.description}</addonDescription>
                             <addonMainClass>com.qspin.qtaste.demo.addon.DemoAddOn</addonMainClass>
                         </manifestEntries>
                     </archive>
