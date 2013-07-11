@@ -21,161 +21,169 @@
       <module>testapi-deploy</module>
    </modules>
 
-   <build>
-      <pluginManagement>
-         <plugins>
-            <!-- plugin to build deploy jar file, including version information -->
-            <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-assembly-plugin</artifactId>
-               <configuration>
-                  <descriptors>
-                     <descriptor>assemblies/deploy.xml</descriptor>
-             <!-- deploy.xml available from qtaste-testapi-deploy-->
-                  </descriptors>
-                  <archive>
-                     <manifest>
-                        <mainClass>com.qspin.qtaste.ui.MainPanel</mainClass>
-                     </manifest>
-                     <manifestEntries>
-                        <Implementation-Version>${project.artifactId}-${project.version}</Implementation-Version>
-                     </manifestEntries>
-                  </archive>
-               </configuration>
-               <dependencies>
-                  <dependency>
-                     <groupId>com.qspin.qtaste</groupId>
-                     <artifactId>qtaste-testapi-deploy</artifactId>
-                     <version>${qtaste-version}</version>
-                  </dependency>
-               </dependencies>
-            </plugin>
+   <!-- NCO Added profile in order to exclude plugins when building Qtaste with mvn release:prepare -->
+    <profiles>
+       <profile>
+        <id>qtaste-testapi_parent-plugins</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <build>
+            <pluginManagement>
+             <plugins>
+                <!-- plugin to build deploy jar file, including version information -->
+                <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-assembly-plugin</artifactId>
+                   <configuration>
+                      <descriptors>
+                         <descriptor>assemblies/deploy.xml</descriptor>
+                      <!-- deploy.xml available from qtaste-testapi-deploy-->
+                      </descriptors>
+                      <archive>
+                         <manifest>
+                            <mainClass>com.qspin.qtaste.ui.MainPanel</mainClass>
+                         </manifest>
+                         <manifestEntries>
+                            <Implementation-Version>${project.artifactId}-${project.version}</Implementation-Version>
+                         </manifestEntries>
+                      </archive>
+                   </configuration>
+                   <dependencies>
+                      <dependency>
+                         <groupId>com.qspin.qtaste</groupId>
+                         <artifactId>qtaste-testapi-deploy</artifactId>
+                         <version>${qtaste-version}</version>
+                      </dependency>
+                   </dependencies>
+                </plugin>
 
-            <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
+                <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
+                <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-dependency-plugin</artifactId>
 
-              <!-- unpack api sources of other QTaste testapi projects dependencies in target/testapi-dependency-src, for TestAPI doc generation,
-                   child project must define all artifacts to include, using includeArtifactIds (comma-separated list) -->
-              <executions>
-                <execution>
-                  <id>unpack-testapi-src</id>
-                  <phase>package</phase>
-                  <goals>
-                    <goal>unpack-dependencies</goal>
-                  </goals>
-                  <configuration>
-                    <classifier>sources</classifier>
-                    <excludeTransitive>true</excludeTransitive>
-                    <includes>com/qspin/qtaste/testapi/api/*.java</includes>
-                    <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>true</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                    <silent>true</silent>
-                  </configuration>
-                </execution>
+                  <!-- unpack api sources of other QTaste testapi projects dependencies in target/testapi-dependency-src, for TestAPI doc generation,
+                       child project must define all artifacts to include, using includeArtifactIds (comma-separated list) -->
+                  <executions>
+                    <execution>
+                      <id>unpack-testapi-src</id>
+                      <phase>package</phase>
+                      <goals>
+                        <goal>unpack-dependencies</goal>
+                      </goals>
+                      <configuration>
+                        <classifier>sources</classifier>
+                        <excludeTransitive>true</excludeTransitive>
+                        <includes>com/qspin/qtaste/testapi/api/*.java</includes>
+                        <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
+                        <overWriteReleases>false</overWriteReleases>
+                        <overWriteSnapshots>true</overWriteSnapshots>
+                        <overWriteIfNewer>true</overWriteIfNewer>
+                        <silent>true</silent>
+                      </configuration>
+                    </execution>
 
-                <execution>
-                  <id>unpack-kernel-src</id>
-                  <phase>package</phase>
-                  <goals>
-                    <goal>unpack-dependencies</goal>
-                  </goals>
-                  <configuration>
-                    <classifier>sources</classifier>
-                    <includeArtifactIds>qtaste-kernel</includeArtifactIds>
-                    <excludeTransitive>true</excludeTransitive>
-                    <includes>com/qspin/qtaste/kernel/testapi/*.java</includes>
-                    <outputDirectory>${project.build.directory}/dependency-kernel-src</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>true</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                    <silent>true</silent>
-                  </configuration>
-                </execution>
+                    <execution>
+                      <id>unpack-kernel-src</id>
+                      <phase>package</phase>
+                      <goals>
+                        <goal>unpack-dependencies</goal>
+                      </goals>
+                      <configuration>
+                        <classifier>sources</classifier>
+                        <includeArtifactIds>qtaste-kernel</includeArtifactIds>
+                        <excludeTransitive>true</excludeTransitive>
+                        <includes>com/qspin/qtaste/kernel/testapi/*.java</includes>
+                        <outputDirectory>${project.build.directory}/dependency-kernel-src</outputDirectory>
+                        <overWriteReleases>false</overWriteReleases>
+                        <overWriteSnapshots>true</overWriteSnapshots>
+                        <overWriteIfNewer>true</overWriteIfNewer>
+                        <silent>true</silent>
+                      </configuration>
+                    </execution>
 
-                <!-- unpack QTaste simulators doc in target/TestAPI-doc/simulators -->
-                <execution>
-                  <id>unpack-simulators-doc</id>
-                  <phase>package</phase>
-                  <goals>
-                    <goal>unpack-dependencies</goal>
-                  </goals>
-                  <configuration>
-                    <classifier>javadoc</classifier>
-                    <includeArtifactIds>qtaste-kernel</includeArtifactIds>
-                    <outputDirectory>${project.build.directory}/TestAPI-doc/simulators</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>true</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                  </configuration>
-                </execution>
-              </executions>
-            </plugin>
+                    <!-- unpack QTaste simulators doc in target/TestAPI-doc/simulators -->
+                    <execution>
+                      <id>unpack-simulators-doc</id>
+                      <phase>package</phase>
+                      <goals>
+                        <goal>unpack-dependencies</goal>
+                      </goals>
+                      <configuration>
+                        <classifier>javadoc</classifier>
+                        <includeArtifactIds>qtaste-kernel</includeArtifactIds>
+                        <outputDirectory>${project.build.directory}/TestAPI-doc/simulators</outputDirectory>
+                        <overWriteReleases>false</overWriteReleases>
+                        <overWriteSnapshots>true</overWriteSnapshots>
+                        <overWriteIfNewer>true</overWriteIfNewer>
+                      </configuration>
+                    </execution>
+                  </executions>
+                </plugin>
 
-            <!-- plugin to generate testapi doc -->
-            <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.9</version>
-               <configuration>
-                 <doclet>com.qspin.qtaste.toolbox.doclet.TestAPIDoclet</doclet>
-                 <docletArtifact>
-                   <groupId>com.qspin.qtaste</groupId>
-                   <artifactId>qtaste-kernel</artifactId>
-                   <version>${qtaste-version}</version>
-                 </docletArtifact>
-                 <sourcepath>src/main/java;${project.build.directory}/dependency-testapi-src;${project.build.directory}/dependency-kernel-src</sourcepath>
-                 <additionalparam>-d ${project.build.directory}/TestAPI-doc</additionalparam>
-                 <useStandardDocletOptions>false</useStandardDocletOptions>
-               </configuration>
-               <executions>
-                 <execution>
-                   <id>generate-testapi-doc</id>
-                   <phase>package</phase>
-                   <goals>
-                     <goal>javadoc</goal>
-                   </goals>
-                 </execution>
-                </executions>
-            </plugin>
+                <!-- plugin to generate testapi doc -->
+                <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9</version>
+                   <configuration>
+                     <doclet>com.qspin.qtaste.toolbox.doclet.TestAPIDoclet</doclet>
+                     <docletArtifact>
+                       <groupId>com.qspin.qtaste</groupId>
+                       <artifactId>qtaste-kernel</artifactId>
+                       <version>${qtaste-version}</version>
+                     </docletArtifact>
+                     <sourcepath>src/main/java;${project.build.directory}/dependency-testapi-src;${project.build.directory}/dependency-kernel-src</sourcepath>
+                     <additionalparam>-d ${project.build.directory}/TestAPI-doc</additionalparam>
+                     <useStandardDocletOptions>false</useStandardDocletOptions>
+                   </configuration>
+                   <executions>
+                     <execution>
+                       <id>generate-testapi-doc</id>
+                       <phase>package</phase>
+                       <goals>
+                         <goal>javadoc</goal>
+                       </goals>
+                     </execution>
+                    </executions>
+                </plugin>
 
-            <!-- plugin to install source artifact -->
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-source-plugin</artifactId>
-              <executions>
-                <execution>
-                  <id>attach-sources</id>
-                  <phase>verify</phase>
-                  <goals>
-                    <goal>jar-no-fork</goal>
-                  </goals>
-                </execution>
-              </executions>
-            </plugin>
+                <!-- plugin to install source artifact -->
+                <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-source-plugin</artifactId>
+                  <executions>
+                    <execution>
+                      <id>attach-sources</id>
+                      <phase>verify</phase>
+                      <goals>
+                        <goal>jar-no-fork</goal>
+                      </goals>
+                    </execution>
+                  </executions>
+                </plugin>
 
-            <!-- plugin to generate build number -->
-            <plugin>
-               <groupId>org.codehaus.mojo</groupId>
-               <artifactId>buildnumber-maven-plugin</artifactId>
-               <executions>
-                  <execution>
-                     <phase>validate</phase>
-                     <goals>
-                        <goal>create</goal>
-                     </goals>
-                  </execution>
-               </executions>
-               <configuration>
-                  <doCheck>false</doCheck>  <!-- set to false to build a development version which is not yet committed -->
-                  <doUpdate>false</doUpdate>
-               </configuration>
-            </plugin>
-         </plugins>
-      </pluginManagement>
-   </build>
-
+                <!-- plugin to generate build number -->
+                <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>buildnumber-maven-plugin</artifactId>
+                   <executions>
+                      <execution>
+                         <phase>validate</phase>
+                         <goals>
+                            <goal>create</goal>
+                         </goals>
+                      </execution>
+                   </executions>
+                   <configuration>
+                      <doCheck>false</doCheck>  <!-- set to false to build a development version which is not yet committed -->
+                      <doUpdate>false</doUpdate>
+                   </configuration>
+                </plugin>
+             </plugins>
+          </pluginManagement>
+        </build>
+        </profile>
+    </profiles>
 </project>

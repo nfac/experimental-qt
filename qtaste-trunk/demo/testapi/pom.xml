@@ -17,10 +17,6 @@
    <packaging>jar</packaging>
    <name>QTaste Test API for QTaste Demo</name>
 
-   <build>
-      <finalName>qtaste-testapi</finalName>
-   </build>
-
    <repositories>
         <repository>
             <id>apache-releases</id>
@@ -103,6 +99,7 @@
             <activeByDefault>true</activeByDefault>
         </activation>
         <build>
+            <finalName>qtaste-testapi</finalName>
             <plugins>
                 <!-- plugin to build deploy jar file, including version information -->
                 <plugin>
