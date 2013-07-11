@@ -117,10 +117,10 @@
     <!-- NCO Added profile in order to exclude this plugin when executing mvn to release QTaste -->
     <profiles>
        <profile>
-        <id>demoTestapiDependencyPlugin</id>
-        <activation>
-          <activeByDefault>true</activeByDefault>
-        </activation>
+        <id>demotestapi-dependencies</id>
+        <property>
+            <name>!skipDependencies</name>
+         </property>
         <build>
             <plugins>
                 <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
