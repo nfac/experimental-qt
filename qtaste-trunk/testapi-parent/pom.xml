@@ -75,6 +75,7 @@
                         <goal>unpack-dependencies</goal>
                       </goals>
                       <configuration>
+                        <skip>${skip-for-release}</skip>
                         <classifier>sources</classifier>
                         <excludeTransitive>true</excludeTransitive>
                         <includes>com/qspin/qtaste/testapi/api/*.java</includes>
@@ -93,6 +94,7 @@
                         <goal>unpack-dependencies</goal>
                       </goals>
                       <configuration>
+                        <skip>${skip-for-release}</skip>
                         <classifier>sources</classifier>
                         <includeArtifactIds>qtaste-kernel</includeArtifactIds>
                         <excludeTransitive>true</excludeTransitive>
@@ -113,6 +115,7 @@
                         <goal>unpack-dependencies</goal>
                       </goals>
                       <configuration>
+                        <skip>${skip-for-release}</skip>
                         <classifier>javadoc</classifier>
                         <includeArtifactIds>qtaste-kernel</includeArtifactIds>
                         <outputDirectory>${project.build.directory}/TestAPI-doc/simulators</outputDirectory>
