@@ -39,7 +39,6 @@
                          <goal>unpack-dependencies</goal>
                     </goals>
                     <configuration>
-                         <skip>true</skip>
                          <classifier>sources</classifier>
                          <includeArtifactIds>selenium-java-client-driver</includeArtifactIds>
                          <outputDirectory>${project.build.directory}/dependency-testapi-src</outputDirectory>
@@ -52,11 +51,6 @@
                     </configuration>
                    </execution>
                </executions>
-
-               <configuration>
-                <skip>true</skip>
-               </configuration>
-
             </plugin>
 
             <!-- plugin to generate testapi doc -->

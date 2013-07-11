@@ -55,7 +55,7 @@
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-dependency-plugin</artifactId>
-              <inherited>false</inherited>
+              <inherited>${plugins-inheritance}</inherited>
               <!-- unpack api sources of other QTaste testapi projects dependencies in target/testapi-dependency-src, for TestAPI doc generation,
                    child project must define all artifacts to include, using includeArtifactIds (comma-separated list) -->
               <executions>

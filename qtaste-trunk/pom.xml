@@ -48,7 +48,7 @@
 
    <properties>
       <qtaste-version>${project.version}</qtaste-version>
-      <skip-for-release>false</skip-for-release>
+      <plugins-inheritance>true</plugins-inheritance>
    </properties>
 
    <build>
@@ -400,7 +400,7 @@
       <profile>
         <id>qtaste-skip-for-release</id>
         <properties>
-            <skip-for-release>true</skip-for-release>
+            <plugins-inheritance>false</plugins-inheritance>
         </properties>
       </profile>
 
