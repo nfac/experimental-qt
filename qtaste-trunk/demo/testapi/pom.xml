@@ -19,25 +19,6 @@
 
    <build>
       <finalName>qtaste-testapi</finalName>
-      <plugins>
-         <!-- plugin to build deploy jar file, including version information -->
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-         </plugin>
-
-         <!-- plugin to generate testapi doc -->
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-         </plugin>
-
-         <!-- plugin to install source artifact -->
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-         </plugin>
-      </plugins>
    </build>
 
    <repositories>
@@ -114,17 +95,21 @@
     </dependency>
    </dependencies>
 
-    <!-- NCO Added profile in order to exclude this plugin when executing mvn to release QTaste -->
+    <!-- NCO Added profile in order to exclude plugins when building Qtaste with mvn release:prepare -->
     <profiles>
        <profile>
-        <id>demotestapi-dependencies</id>
+        <id>qtaste-demotestapi-plugins</id>
         <activation>
-         <property>
-            <name>!skipDependencies</name>
-         </property>
+            <activeByDefault>true</activeByDefault>
         </activation>
         <build>
             <plugins>
+                <!-- plugin to build deploy jar file, including version information -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                </plugin>
+
                 <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
                 <plugin>
                    <groupId>org.apache.maven.plugins</groupId>
@@ -151,6 +136,19 @@
                        </execution>
                    </executions>
                 </plugin>
+
+                <!-- plugin to generate testapi doc -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                </plugin>
+
+                <!-- plugin to install source artifact -->
+                <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-source-plugin</artifactId>
+                </plugin>
+
             </plugins>
         </build>
       </profile>
