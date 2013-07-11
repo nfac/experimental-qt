@@ -118,9 +118,11 @@
     <profiles>
        <profile>
         <id>demotestapi-dependencies</id>
-        <property>
+        <activation>
+         <property>
             <name>!skipDependencies</name>
          </property>
+        </activation>
         <build>
             <plugins>
                 <!-- plugin to get sources of other testapi dependency projects, for testapi doc generation -->
