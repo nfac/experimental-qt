@@ -368,7 +368,9 @@
       <profile>
         <id>qtaste-default-modules</id>
         <activation>
-          <activeByDefault>true</activeByDefault>
+            <property>
+                <name>!skip-qtaste-default-modules</name>
+            </property>
         </activation>
         <modules>
             <module>testapi-parent</module>

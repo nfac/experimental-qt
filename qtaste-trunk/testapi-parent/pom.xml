@@ -26,7 +26,9 @@
        <profile>
         <id>qtaste-testapi_parent-plugins</id>
         <activation>
-            <activeByDefault>true</activeByDefault>
+            <property>
+                <name>!skip-qtaste-testapi_parent-plugins</name>
+            </property>
         </activation>
         <build>
             <pluginManagement>

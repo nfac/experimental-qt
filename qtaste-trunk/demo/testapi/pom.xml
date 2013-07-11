@@ -96,7 +96,9 @@
        <profile>
         <id>qtaste-demotestapi-plugins</id>
         <activation>
-            <activeByDefault>true</activeByDefault>
+            <property>
+                <name>!skip-qtaste-demotestapi-plugins</name>
+            </property>
         </activation>
         <build>
             <finalName>qtaste-testapi</finalName>
