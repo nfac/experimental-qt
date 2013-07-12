@@ -1,7 +1,12 @@
 #! /bin/bash
 find . -name "*.sh" | xargs chmod +x
 
-# build other
+#remove previous python compilation classes.
+pushd tools/jython/lib/Lib/
+rm -f *.class
+popd
+
+# build qtaste
 mvn clean install -P qtaste-build-kernel-first -Denvironment=hosted_ci || exit 1
 
 # build plugins

@@ -83,7 +83,6 @@
                 <executions>
                     <execution>
                         <id>generate-simulators-doc</id>
-                         <!-- <phase>package</phase> -->
                          <phase>install</phase> <!-- NCO ADDED: this solves compiling with main pom -->
                         <goals>
                             <goal>jar</goal>
@@ -251,7 +250,7 @@
                                 </manifestEntries>
                             </archive>
                             <descriptors>
-                                <descriptor>kernel/src/main/assembly/deploy.xml</descriptor>
+                                <descriptor>src/main/assembly/deploy.xml</descriptor>
                             </descriptors>
                         </configuration>
                       </execution>
