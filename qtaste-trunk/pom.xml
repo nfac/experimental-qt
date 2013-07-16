@@ -25,7 +25,7 @@
 
    <groupId>com.qspin.qtaste</groupId>
    <artifactId>qtaste</artifactId>
-   <version>1.2.4-SNAPSHOT</version>
+   <version>1.2.5-SNAPSHOT</version>
    <packaging>pom</packaging>
    <name>QTaste: QSpin Tailored Automated Test Environment</name>
    <description>QTaste is a generic engine to perform automated integration tests</description>

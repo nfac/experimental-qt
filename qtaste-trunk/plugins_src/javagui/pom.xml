@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.qspin.qtaste</groupId>
         <artifactId>qtaste</artifactId>
-        <version>1.2.4-SNAPSHOT</version>
+        <version>1.2.5-SNAPSHOT</version>
         <relativePath>../..</relativePath>
     </parent>
 
@@ -116,7 +116,7 @@
         <dependency>
             <groupId>qtaste-plugin</groupId>
             <artifactId>tools</artifactId>
-            <version>1.2.4-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
     <groupId>com.qspin.qtaste.plugin</groupId>

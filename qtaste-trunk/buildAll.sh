@@ -1,17 +1,13 @@
 #! /bin/bash
 find . -name "*.sh" | xargs chmod +x
 
-# build the kernel
-pushd kernel
-./build.sh || exit 1
+#remove previous python compilation classes.
+pushd tools/jython/lib/Lib/
+rm -f *.class
 popd
 
-# build other
-if [ "$QTASTE_HOSTED_CI" = "1" ]; then
-  mvn install -Denvironment=hosted_ci || exit 1
-else
-  mvn install || exit 1
-fi
+# build qtaste
+mvn clean install -P qtaste-build-kernel-first -Denvironment=hosted_ci || exit 1
 
 # build plugins
 pushd plugins_src
@@ -32,3 +28,5 @@ popd
 pushd doc
 ./generateDocs.sh || exit 1
 popd
+
+
