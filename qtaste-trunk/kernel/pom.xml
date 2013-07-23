@@ -171,7 +171,6 @@
         <dependency>
           <groupId>javax.script</groupId>
           <artifactId>jython-engine</artifactId>
-          <classifier>jdk14</classifier>
         </dependency>
 
         <dependency>

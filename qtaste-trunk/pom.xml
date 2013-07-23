@@ -4,7 +4,7 @@
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
 
-<!-- Added -->
+
     <repositories>
         <repository>
             <id>central</id>
@@ -16,13 +16,18 @@
             <name>ibiblio</name>
             <url>http://repo1.maven.org/maven/mule/dependencies/maven2</url>
         </repository>
-    </repositories>
+        <repository>
+            <id>nuxeo.org</id>
+            <name>nuxeo</name>
+            <url>https://maven-us.nuxeo.org/nexus/content/groups/public/</url>
+        </repository>
+   </repositories>
 
 
   <scm>
-    <url>https://github.com/nfac/qtaste</url>
-    <connection>scm:git:ssh://git@github.com/nfac/qtaste.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/nfac/qtaste.git</developerConnection>
+    <url>https://github.com/nfac/experimental-qt</url>
+    <connection>scm:git:ssh://git@github.com/nfac/experimental-qt.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/nfac/experimental-qt.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
@@ -66,6 +71,8 @@
             </configuration>
          </plugin>
       </plugins>
+
+
 
       <pluginManagement>
          <plugins>
@@ -167,9 +174,13 @@
             </exclusion>
          </exclusions>
       </dependency>
-
-<!-- NCO: removed <artifactId>jdk-tools</artifactId> -->
-
+      <dependency>
+         <groupId>com.sun</groupId>
+         <artifactId>tools</artifactId>
+         <version>whatever</version>
+         <scope>system</scope>
+         <systemPath>${java.home}/../lib/tools.jar</systemPath>
+      </dependency>
    </dependencies>
 
    <dependencyManagement>
@@ -177,12 +188,12 @@
          <dependency>
             <groupId>com.qspin.qtaste</groupId>
             <artifactId>qtaste-kernel</artifactId>
-            <version>${qtaste-version}</version>
+            <version>${project.version}</version>
          </dependency>
          <dependency>
             <groupId>com.qspin.qtaste</groupId>
             <artifactId>qtaste-kernel</artifactId>
-            <version>${qtaste-version}</version>
+            <version>${project.version}</version>
             <classifier>tests</classifier>
          </dependency>
 
@@ -233,13 +244,12 @@
           <groupId>javax.script</groupId>
           <artifactId>jython-engine</artifactId>
           <version>1.0</version>
-          <classifier>jdk14</classifier>
         </dependency>
 
         <dependency>
             <groupId>jfree</groupId>
             <artifactId>jfreechart</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.13</version>
          </dependency>
          <dependency>
             <groupId>com.jgoodies</groupId>
@@ -299,26 +309,6 @@
    </dependencyManagement>
 
    <profiles>
-<!-- NCO: added profile -->
-      <profile>
-         <id>default-tools.jar</id>
-         <activation>
-           <property>
-             <name>environment</name>
-             <value>hosted_ci</value>
-           </property>
-         </activation>
-         <dependencies>
-           <dependency>
-             <groupId>com.sun</groupId>
-             <artifactId>tools</artifactId>
-             <version>whatever</version>
-             <scope>system</scope>
-             <systemPath>${java.home}/../lib/tools.jar</systemPath>
-           </dependency>
-        </dependencies>
-      </profile>
-
       <profile>
          <id>qspin-site</id>
          <activation>
