@@ -2,8 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
 
-<!-- Added -->
-    <repositories>
+   <repositories>
         <repository>
             <id>central</id>
             <name>Maven Central</name>
@@ -14,12 +13,17 @@
             <name>ibiblio</name>
             <url>http://repo1.maven.org/maven/mule/dependencies/maven2</url>
         </repository>
-    </repositories>
+        <repository>
+            <id>nuxeo.org</id>
+            <name>nuxeo</name>
+            <url>https://maven-us.nuxeo.org/nexus/content/groups/public/</url>
+        </repository>
+   </repositories>
 
   <scm>
-    <url>https://github.com/nfac/qtaste</url>
-    <connection>scm:git:ssh://git@github.com/nfac/qtaste.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/nfac/qtaste.git</developerConnection>
+    <url>https://github.com/nfac/experimental-qt</url>
+    <connection>scm:git:ssh://git@github.com/nfac/experimental-qt.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/nfac/experimental-qt.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
@@ -168,9 +172,11 @@
 
 <!-- NCO: removed <artifactId>jdk-tools</artifactId> -->
       <dependency>
-            <groupId>com.sun.jdk</groupId>
-            <artifactId>jdk-tools</artifactId>
-            <version>1.5</version>
+         <groupId>com.sun</groupId>
+         <artifactId>tools</artifactId>
+         <version>whatever</version>
+         <scope>system</scope>
+         <systemPath>${java.home}/../lib/tools.jar</systemPath>
       </dependency>
 
 
@@ -237,7 +243,6 @@
           <groupId>javax.script</groupId>
           <artifactId>jython-engine</artifactId>
           <version>1.0</version>
-          <classifier>jdk14</classifier>
         </dependency>
 
         <dependency>
@@ -303,26 +308,6 @@
    </dependencyManagement>
 
    <profiles>
-<!-- NCO: added profile -->
-      <profile>
-         <id>qtaste-local-javatools</id>
-         <activation>
-           <property>
-             <name>environment</name>
-             <value>hosted_ci</value>
-           </property>
-         </activation>
-         <dependencies>
-           <dependency>
-             <groupId>com.sun</groupId>
-             <artifactId>tools</artifactId>
-             <version>whatever</version>
-             <scope>system</scope>
-             <systemPath>${java.home}/../lib/tools.jar</systemPath>
-           </dependency>
-        </dependencies>
-      </profile>
-
       <profile>
          <id>qspin-site</id>
          <activation>
